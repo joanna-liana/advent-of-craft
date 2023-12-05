@@ -22,6 +22,7 @@ describe('Edible food', () => {
     [true, inspector, notFreshDate],
     [false, inspector, freshDate],
     [true, null, freshDate],
+    [true, '', notFreshDate],
     [false, null, notFreshDate],
     [false, null, freshDate],
   ];
