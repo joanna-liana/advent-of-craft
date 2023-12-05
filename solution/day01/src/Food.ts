@@ -8,18 +8,14 @@ export class Food {
   ) {}
 
   public isEdible(now: Date): boolean {
-    return this.hasNotExpiredBy(now) && this.isApprovedByInspector();
+    const hasBeenCheckedByInspector = !!this.inspectorId;
+    const isApprovedByInspector = this.approvedForConsumption &&
+      hasBeenCheckedByInspector;
+
+    return this.hasNotExpiredBy(now) && isApprovedByInspector;
   }
 
   private hasNotExpiredBy(now: Date) {
     return isBefore(now, this.expirationDate);
-  }
-
-  private isApprovedByInspector() {
-    return this.approvedForConsumption && this.hasBeenCheckedByInspector;
-  }
-
-  private get hasBeenCheckedByInspector() {
-    return !!this.inspectorId;
   }
 }
