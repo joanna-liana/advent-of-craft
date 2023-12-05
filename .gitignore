@@ -37,3 +37,6 @@ target/
 ### Approval
 *.received.*
 
+# Node.js/TypeScript
+node_modules
+coverage
