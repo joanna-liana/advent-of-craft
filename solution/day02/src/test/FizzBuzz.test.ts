@@ -16,7 +16,8 @@ describe('FizzBuzz', () => {
       expectedOutput: '82'
     }
   ])(
-    'returns the given number directly if it is not divisible by either 3 or 5',
+    // eslint-disable-next-line max-len
+    'returns the given number directly if it is not divisible by either 3 or 5 - $givenNumber',
     ({ givenNumber, expectedOutput }) => {
       expect(FizzBuzz.convert(givenNumber)).toBe(expectedOutput);
     }
