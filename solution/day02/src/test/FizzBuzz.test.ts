@@ -43,17 +43,25 @@ describe('FizzBuzz', () => {
     }
   );
 
-  describe('throws an exceptions', () => {
-    it('for a value equal to the min threshold', () => {
-      expect(() => FizzBuzz.convert(0)).toThrow(OutOfRangeException);
+  describe('accepted input range', () => {
+    describe('FizzBuz throws an exception', () => {
+      it('for a value just below the min threshold', () => {
+        expect(() => FizzBuzz.convert(0)).toThrow(OutOfRangeException);
+      });
+
+      it('for a value just above the max threshold', () => {
+        expect(() => FizzBuzz.convert(101)).toThrow(OutOfRangeException);
+      });
     });
 
-    it('for a value below to the min threshold', () => {
-      expect(() => FizzBuzz.convert(-1)).toThrow(OutOfRangeException);
-    });
+    describe('FizzBuz does not throw an exception', () => {
+      it('for a value equal to the min threshold', () => {
+        expect(() => FizzBuzz.convert(1)).not.toThrow();
+      });
 
-    it('for a value just above the accepted max threshold', () => {
-      expect(() => FizzBuzz.convert(101)).toThrow(OutOfRangeException);
+      it('for a value equal to the max threshold', () => {
+        expect(() => FizzBuzz.convert(100)).not.toThrow();
+      });
     });
   });
 });
