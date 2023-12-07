@@ -4,7 +4,7 @@ export class FizzBuzz {
   private constructor() {}
 
   public static convert(input: number): string {
-    if (input < 1 || input > 100) {
+    if (input <= 0 || input > 100) {
       throw new OutOfRangeException();
     }
 
