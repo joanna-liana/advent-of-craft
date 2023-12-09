@@ -2,6 +2,7 @@ import { Person } from '../Person';
 import { Pet } from '../Pet';
 import { PetType } from '../PetType';
 
+// TODO: is the concept of population missing?
 let population: Person[];
 
 beforeAll(() => {
@@ -23,8 +24,8 @@ beforeAll(() => {
 
 test('whoOwnsTheYoungestPet', () => {
   const filtered = population.sort((a, b) => {
-    const aMinAge = Math.min(...a.pets.map(pet => pet.age));
-    const bMinAge = Math.min(...b.pets.map(pet => pet.age));
+    const aMinAge = a.pets.youngestPetAge;
+    const bMinAge = b.pets.youngestPetAge;
     return aMinAge - bMinAge;
   })[0];
 

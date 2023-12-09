@@ -4,11 +4,15 @@ export class Person {
   constructor(
     public readonly firstName: string,
     public readonly lastName: string,
-    public readonly pets: Pet[] = []
+    private _pets: Pet[] = []
   ) {}
 
+  get pets(): ReadonlyArray<Pet> {
+    return this._pets;
+  }
+
   addPet(pet: Pet): Person {
-    this.pets.push(pet);
+    this._pets.push(pet);
     return this;
   }
 }
