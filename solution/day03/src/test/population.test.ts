@@ -22,13 +22,24 @@ beforeAll(() => {
   ];
 });
 
-test('whoOwnsTheYoungestPet', () => {
-  const filtered = population.sort((a, b) => {
-    const aMinAge = a.pets.youngestPetAge;
-    const bMinAge = b.pets.youngestPetAge;
-    return aMinAge - bMinAge;
-  })[0];
+const findYoungestPetAge = (person: Person) => {
+  const petsByAge = [...person.pets].sort((petA, petB) => petA.age - petB.age);
+  const youngestPet = petsByAge[0];
 
-  expect(filtered).toBeDefined();
-  expect(filtered.firstName).toBe('Lois');
+  return youngestPet?.age;
+};
+
+
+test('who owns the youngest pet', () => {
+  const populationByYoungestPet = population.sort((personA, personB) => {
+    const aPetAge = findYoungestPetAge(personA);
+    const bPetAge = findYoungestPetAge(personB);
+
+    return aPetAge - bPetAge;
+  });
+
+  const youngestPetOwner = populationByYoungestPet[0];
+
+  expect(youngestPetOwner).toBeDefined();
+  expect(youngestPetOwner.firstName).toBe('Lois');
 });
