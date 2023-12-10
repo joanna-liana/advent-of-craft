@@ -4,7 +4,7 @@ import { PetType } from '../PetType';
 
 describe('Population', () => {
   let population: Person[];
-  let expectedYoungestPetOwner;
+  let expectedYoungestPetOwner: Person;
 
   beforeEach(() => {
     expectedYoungestPetOwner = new Person('Lois', 'Griffin')
@@ -46,7 +46,7 @@ describe('Population', () => {
 
     const youngestPetOwner = populationByYoungestPet[0];
 
-    expect(youngestPetOwner).toBe(youngestPetOwner);
+    expect(youngestPetOwner).toBe(expectedYoungestPetOwner);
   });
 
 });
