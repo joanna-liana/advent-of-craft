@@ -87,7 +87,7 @@ describe('Article comments', () => {
     test.each([
       {
         scenario: 'the same author, different text',
-        text: existingCommentText + 'part two',
+        text: `${existingCommentText} part two`,
         author: existingCommentAuthor,
       },
       {
