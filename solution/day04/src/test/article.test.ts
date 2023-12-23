@@ -2,6 +2,14 @@ import { Article } from '../Article';
 import { CommentAlreadyExistException } from '../CommentAlreadyExistException';
 
 describe('Article', () => {
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   test('it should add a comment', () => {
     const article = new Article(
       'Lorem Ipsum',
@@ -25,8 +33,17 @@ describe('Article', () => {
       'Lorem Ipsum',
       'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
     );
+    const now = new Date(2020, 0, 12);
+    jest.setSystemTime(now);
 
     article.addComment('Amazing article !!!', 'Pablo Escobar');
+
+    expect(article.getComments()).toHaveLength(1);
+    expect(article.getComments()).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ creationDate: now })
+      ])
+    );
   });
 
   test('it should throw an exception when adding existing comment', () => {
