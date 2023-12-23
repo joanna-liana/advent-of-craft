@@ -2,8 +2,17 @@ import { Article } from '../Article';
 import { CommentAlreadyExistException } from '../CommentAlreadyExistException';
 
 describe('Article', () => {
+  let article: Article;
+
   beforeAll(() => {
     jest.useFakeTimers();
+  });
+
+  beforeEach(() => {
+    article = new Article(
+      'Lorem Ipsum',
+      'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
+    );
   });
 
   afterAll(() => {
@@ -11,10 +20,6 @@ describe('Article', () => {
   });
 
   test('it should add a comment', () => {
-    const article = new Article(
-      'Lorem Ipsum',
-      'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
-    );
     const text = 'Amazing article !!!';
     const author = 'Pablo Escobar';
 
@@ -29,10 +34,6 @@ describe('Article', () => {
   });
 
   test('it should add a comment with the date of the day', () => {
-    const article = new Article(
-      'Lorem Ipsum',
-      'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
-    );
     const now = new Date(2020, 0, 12);
     jest.setSystemTime(now);
 
@@ -47,10 +48,6 @@ describe('Article', () => {
   });
 
   test('it should add a comment with the provided date', () => {
-    const article = new Article(
-      'Lorem Ipsum',
-      'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
-    );
     const now = new Date(2020, 0, 12);
     jest.setSystemTime(now);
     const creationDate = new Date(2022, 5, 20);
@@ -66,10 +63,6 @@ describe('Article', () => {
   });
 
   test('it should throw an exception when adding existing comment', () => {
-    const article = new Article(
-      'Lorem Ipsum',
-      'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore'
-    );
     article.addComment('Amazing article !!!', 'Pablo Escobar');
 
     expect(() => {
