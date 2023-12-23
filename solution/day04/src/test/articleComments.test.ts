@@ -64,12 +64,59 @@ describe('Article comments', () => {
     });
   });
 
-  test('the same comment cannot be added twice', () => {
-    article.addComment('Amazing article !!!', 'Pablo Escobar');
+  describe('multiple comments', () => {
+    const existingCommentText = 'Amazing article !!!';
+    const existingCommentAuthor = 'Pablo Escobar';
 
-    expect(() => {
-      article.addComment('Amazing article !!!', 'Pablo Escobar');
-    }).toThrow(CommentAlreadyExistException);
-    expect(article.getComments()).toHaveLength(1);
+    let articleWithSingleComment: Article;
+
+    beforeEach(() => {
+      articleWithSingleComment = new Article(
+        'Lorem Ipsum',
+        'consectetur adipiscing elit'
+      );
+
+      articleWithSingleComment.addComment(
+        existingCommentText,
+        existingCommentAuthor
+      );
+
+      expect(articleWithSingleComment.getComments()).toHaveLength(1);
+    });
+
+    test.each([
+      {
+        scenario: 'the same author, different text',
+        text: existingCommentText + 'part two',
+        author: existingCommentAuthor,
+      },
+      {
+        scenario: 'the same text, different author',
+        text: `${existingCommentText} part two`,
+        author: existingCommentAuthor,
+      },
+      {
+        scenario: 'different text, different author',
+        text: `${existingCommentText} part two`,
+        author: `${existingCommentAuthor} Junior`,
+      }
+    ])(
+      'an article can have multiple comments - $scenario',
+      ({ author, text }) => {
+        articleWithSingleComment
+          .addComment(text, author);
+
+        expect(articleWithSingleComment.getComments()).toHaveLength(2);
+      }
+    );
+
+    test('the same comment by the same author cannot be added twice', () => {
+      expect(() => {
+        articleWithSingleComment
+          .addComment(existingCommentText, existingCommentAuthor);
+      }).toThrow(CommentAlreadyExistException);
+
+      expect(articleWithSingleComment.getComments()).toHaveLength(1);
+    });
   });
 });
