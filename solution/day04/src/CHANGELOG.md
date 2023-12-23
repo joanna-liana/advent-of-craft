@@ -4,3 +4,4 @@ Improvements to the tests:
 3. Added a test that checks if the provided comment date is saved.
 4. Cleaned up test setup.
 5. "it should throw an exception when adding existing comment" - the test checked the exception but not the state of the article; asserted that the comment was not added despite the error.
+6. Improved test names to focus just on article comments (and not on `Article` as a whole)
