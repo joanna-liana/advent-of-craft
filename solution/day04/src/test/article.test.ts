@@ -68,5 +68,6 @@ describe('Article', () => {
     expect(() => {
       article.addComment('Amazing article !!!', 'Pablo Escobar');
     }).toThrow(CommentAlreadyExistException);
+    expect(article.getComments()).toHaveLength(1);
   });
 });
