@@ -149,17 +149,17 @@ Here are the libraries we use in the different days per supported language:
         </a>
     </td>
     <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/yanncourtel>
-            <img src=https://avatars.githubusercontent.com/u/75068587?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Yann Courtel/>
-            <br />
-            <sub style="font-size:14px"><b>Yann Courtel</b></sub>
-        </a>
-    </td>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
         <a href=https://github.com/joanna-liana>
             <img src=https://avatars.githubusercontent.com/u/28543932?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Joanna/>
             <br />
             <sub style="font-size:14px"><b>Joanna</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/yanncourtel>
+            <img src=https://avatars.githubusercontent.com/u/75068587?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Yann Courtel/>
+            <br />
+            <sub style="font-size:14px"><b>Yann Courtel</b></sub>
         </a>
     </td>
 </tr>
