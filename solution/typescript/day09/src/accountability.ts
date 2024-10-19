@@ -1,19 +1,12 @@
 export class Client {
-  private totalAmount: number = 0;
-
   constructor(private readonly orderLines: Readonly<Record<string, number>>) {
   }
 
   toStatement(): string {
-    this.calculateTotal();
+    const itemLines = this.generateItemLines();
+    const totalAmount = this.getTotalAmount();
 
-    return this.generateStatement();
-  }
-
-  private generateStatement(): string {
-    const lines = this.generateItemLines();
-
-    return `${lines.join('\n')}\nTotal : ${this.totalAmount.toFixed(2)}€`;
+    return `${itemLines.join('\n')}\nTotal : ${totalAmount.toFixed(2)}€`;
   }
 
   private generateItemLines(): string[] {
@@ -21,14 +14,10 @@ export class Client {
       .map(([name, value]) => this.formatLine(name, value));
   }
 
-  getTotalAmount(): number {
-    return this.totalAmount;
-  }
-
-  private calculateTotal(): void {
-    this.totalAmount = Object.entries(this.orderLines)
-      .reduce((total, [, value]) => {
-        total += value;
+  public getTotalAmount(): number {
+    return Object.values(this.orderLines)
+      .reduce((total, lineValue) => {
+        total += lineValue;
 
         return total;
       }, 0);
