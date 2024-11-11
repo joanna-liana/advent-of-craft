@@ -25,4 +25,21 @@ describe('Greeter', () => {
     greeter.setFormality('intimate');
     expect(greeter.greet()).toBe('Hello Darling!');
   });
+
+  test('says Hello with custom formality', () => {
+    greeter = new Greeter({
+      default: 'Ahoy!',
+      bestBuddies: 'Hey there',
+      silence: ''
+    });
+
+    greeter.setFormality('intimate'); // unsupported formality
+    expect(greeter.greet()).toBe('Ahoy!');
+
+    greeter.setFormality('bestBuddies');
+    expect(greeter.greet()).toBe('Hey there');
+
+    greeter.setFormality('silence');
+    expect(greeter.greet()).toBe('');
+  });
 });
