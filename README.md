@@ -3,8 +3,8 @@
 [![Our Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/E5Z9s9UKTS)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/advent-of-craft)
 
-[![License](https://img.shields.io/github/license/advent-of-craft/advent-of-craft.svg)](https://github.com/advent-of-craft/advent-of-craft/blob/main/LICENSE)
-[![Contributors](https://github.com/advent-of-craft/advent-of-craft/actions/workflows/contributors.yml/badge.svg)](https://github.com/advent-of-craft/advent-of-craft/actions/workflows/contributors.yml)
+[![License](https://img.shields.io/github/license/advent-of-craft/2023.svg)](https://github.com/advent-of-craft/2023/blob/main/LICENSE)
+[![Contributors](https://github.com/advent-of-craft/2023/actions/workflows/contributors.yml/badge.svg)](https://github.com/advent-of-craft/advent-of-craft/actions/workflows/contributors.yml)
 [![CodeScene general](https://codescene.io/images/analyzed-by-codescene-badge.svg)](https://codescene.io/projects/47561)
 [![CodeScene Code Health](https://codescene.io/projects/47561/status-badges/code-health)](https://codescene.io/projects/47561)
 
@@ -117,7 +117,7 @@ given concept:
 
 - [Refactoring 🚀](docs/learning-paths/refactoring.md)
 - [Clean Testing 🧼](docs/learning-paths/clean-testing.md)
-- [Test-Driven Development 🔴🔵🟢](docs/learning-paths/tdd.md)
+- [Test-Driven Development 🔴🟢🔵](docs/learning-paths/tdd.md)
 - [Design 🏛](docs/learning-paths/design.md)
 - [Functional Programming 🌋](docs/learning-paths/functional-programming.md)
 
